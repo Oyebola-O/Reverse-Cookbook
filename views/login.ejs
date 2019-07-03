@@ -1,0 +1,17 @@
+<? include partials/header ?>
+<div class="container" id="fc">
+    <form class="form-container" action="/login" method="POST">
+        <div class="form-group">
+            <input type="email" class="form-control" name="username" placeholder="Enter email" required>
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary form-button">Submit</button>
+        <small id="emailHelp" class="form-text text-muted">Enjor your coocking :)</small>
+    </form>
+</div>
+
+<? include partials/footer ?>

@@ -4,7 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/main.css">
     <title>Reverse Coockbook</title>
 </head>
+<body>
+    <!-- Navbar -->
+    <div class="container pt-4">
+        <ul class="nav justify-content-end">
+            <li class="nav-item mr-auto"><a class="navbar-brand" href="/">HÖBO</a></li>
+
+            <ul class="nav">
+                <!-- <img src="https://img.icons8.com/dotty/30/000000/search-more.png"> -->
+                <li class="nav-item search "><img src="https://img.icons8.com/plasticine/30/000000/pie.png"></li>
+                <? if(currentUser){ ?>
+                    <a href="/logout">
+                        <li class="nav-item mr-2"><button type="button" class="btn btn-outline-primary">Logout</button></li>
+                    </a>
+
+                <? } else { ?>
+                    <a href="/login">
+                        <li class="nav-item mr-2"><button type="button" class="btn btn-outline-primary">Login</button></li>
+                    </a>
+                    <a href="/register">
+                        <li class="nav-item "><button type="button" class="btn btn-outline-primary">Register</button></li>
+                    </a>
+                <? } ?>
+                
+            </ul>
+        </ul>
+    </div>
