@@ -16,6 +16,8 @@ app.use(express.static(__dirname + "/public"));
 
 app.get('/', (req, res)=> { res.render('index')});
 
+// Create users
+
 
 app.listen(port, () => {
     console.log(`Server us listening on port: ${port}`);
