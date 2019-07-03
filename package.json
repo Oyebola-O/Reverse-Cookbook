@@ -1,0 +1,24 @@
+{
+  "name": "reverse-cookbook",
+  "version": "1.0.0",
+  "description": "A reverse cookbook",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Oyebola-O/Reverse-Cookbook.git"
+  },
+  "author": "HOBO",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Oyebola-O/Reverse-Cookbook/issues"
+  },
+  "homepage": "https://github.com/Oyebola-O/Reverse-Cookbook#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "ejs": "^2.6.2",
+    "express": "^4.17.1"
+  }
+}
