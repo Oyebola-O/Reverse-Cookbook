@@ -1,0 +1,20 @@
+<? include ../partials/header ?>
+
+<div class="container">
+    <div class="row mt-5 pt-5">
+        <div class="col-8 mx-auto d-flex align-items-center">
+            <input class="d-inline form-control" id="searchbar" type="text" placeholder="add your ingredients" required>
+            <img id="search-button" class="search-button" src="https://img.icons8.com/clouds/42/000000/add.png">
+        </div>
+    </div>
+
+    <div class="row mt-5 ml-5 pt-5 pb-4" id="ingredients">
+        <form action="/recipe/search/get" method="post">
+            <span>Try to add less than 5 ingredients</span>
+            <div></div>
+            <button type="submit" id="ing-search" class="btn ing-search">Search</button>
+        </form>
+    </div>
+</div>
+
+<? include ../partials/footer ?>

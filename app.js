@@ -3,12 +3,17 @@ const ejs = require('ejs');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
+const fetch = require('node-fetch');
 const localStrategy = require('passport-local');
 const expressSession = require('express-session');
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const user = require('./models/users');
+
+
+
 const auth = require('./routes/auth');
+const recipeRoutes = require('./routes/recipe');
 
 
 mongoose.connect('mongodb://localhost:27017/ReverseCook', {useNewUrlParser: true});
@@ -40,6 +45,7 @@ app.use((req, res, next)=> {
 
 app.get('/', (req, res)=> { res.render('index') });
 app.use(auth);
+app.use('/recipe', recipeRoutes);
 app.get('*', (req, res)=> { res.send('Theres a mistake in the url')} );
 
 
