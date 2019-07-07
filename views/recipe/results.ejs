@@ -1,0 +1,30 @@
+<? include ../partials/header ?>
+
+<div class="container-fluid pt-5 mt-4" id="rc">
+    <div class="row justify-content-center">
+
+        <? response.forEach((recipe)=> { ?>
+            <a href="/recipe/search/get/<?= recipe.id ?>">
+            <div class="col-3 mb-5">
+                <div class="card-box recipe-card">
+                    <div class="recipe-card-image" style="background-image:url(<?= recipe.image ?>)"></div>
+                    <div class="recipe-card-info">
+                        <span class="f-text"> RECIPE</span>
+                        <h3 class="recipe-card-title"> <?= recipe.title ?> </h3>
+                        <span class="card-by">by <a href="#" class="author">Rapid Api</a></span>
+                    </div>
+                </div>
+            </div>
+            </a>
+        <? }) ?>
+
+    </div>
+
+    <div class="view-more">
+        <button class="btn btn-outline-primary">View More</button>
+    </div>
+</div>
+
+
+
+<? include ../partials/footer ?>
