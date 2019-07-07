@@ -1,0 +1,43 @@
+<? include ../partials/header ?>
+
+<div class="container mt-5 mb-5">
+    <div class="row rows mb-1">
+        <div class="col-6 r-image" style="background-image: url(<?= recipe.image ?>)"></div>
+        <div class="col-6 card-body pl-4">
+            <h3 class="card-title"><?= recipe.title ?></h3>
+            <h4><img src="https://img.icons8.com/clouds/60/000000/clock.png"> <?= recipe.readyInMinutes ?> minutes</h4>
+            <h5>Credits to <?= recipe.creditsText ?></h5>
+            <p>
+            <? let ingredient = recipe.extendedIngredients; ?>
+
+            <? for(var i = 0; i < ingredient.length; i++){ ?>
+                <? if(i == ingredient.length-1){ ?>
+                    <?= ingredient[i].name.toUpperCase() ?>
+                <? } else { ?>
+                    <?= ingredient[i].name.toUpperCase() ?>,
+                <? } ?>
+            <? } ?>
+            </p>
+            <a href="<?= recipe.sourceUrl ?>">
+                <button class="btn btn-outline-primary">More Info</button>
+            </a>
+        </div>
+    </div>
+
+    <div class="row rows pb-5">
+        <h1 class="ml-5 mb-5 mt-5">Recipe Instructions</h1>
+
+        <ul class="col-11 ml-5">
+        <? recipe.analyzedInstructions[0].steps.forEach((step)=> { ?>
+            <li class="mb-5">
+                <?= step.step ?>
+            </li>
+        <? }) ?>
+        </ul>
+
+    </div>
+</div>
+
+<? include ../partials/footer ?>
+
+
