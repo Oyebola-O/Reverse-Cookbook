@@ -115,11 +115,11 @@ i {
 /* ================================ */
 
 #searchbar {
-    /* margin: 0 auto; */
+    margin: 0 auto;
     width: 80%;
     font-family: 'Padauk', sans-serif;
     font-size: 18px;
-    /* margin-left: 20px; */
+    margin-left: 20px;
     margin-right: 2px;
     padding: 20px 12px;
     border-radius: 20px 0 0 20px;
