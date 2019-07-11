@@ -1,0 +1,13 @@
+<? include ../partials/header ?>
+
+
+<h1>Welcome <?= user.username ?></h1>
+
+<? if(user.liked[0]) { ?>
+    <? user.liked.forEach((like)=> { ?>
+        <h5> <?= like.title ?> </h5>
+    <? }); ?>
+<? } ?>
+
+
+<? include ../partials/footer ?>

@@ -21,6 +21,7 @@
             <a href="<?= recipe.sourceUrl ?>">
                 <button class="btn btn-outline-primary">More Info</button>
             </a>
+            <a href="/users/recipelike/<?= recipe._id ?>" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a>
         </div>
     </div>
 
@@ -28,16 +29,49 @@
         <h1 class="ml-5 mb-5 mt-5">Recipe Instructions</h1>
 
         <ul class="col-11 ml-5">
-        <? recipe.analyzedInstructions[0].steps.forEach((step)=> { ?>
+        <? recipe.steps.forEach((step)=> { ?>
             <li class="mb-5">
-                <?= step.step ?>
+                <?= step ?>
             </li>
         <? }) ?>
         </ul>
+    </div>
+
+    <div class="row rows mt-2 pt-5 pb-5">
+        <h2 class="pl-5 mb-5 mt-5 col-12">Comments</h2>
+
+        <form class="col-12 mb-5 pl-5 pr-5 d-flex justify-content-center" action="/recipe/<?= recipe.id ?>/comments" method="POST">
+            <input type="text" class="col-9 comment-text" name="comment[text]">
+            <button class="btn btn-outline-primary float-right">Add Comment</button>
+        </form>
+
+        <? console.log(recipe.comments) ?>
+
+        <? if(recipe.comments[0]){ ?>
+            <? recipe.comments.forEach((comment)=> { ?>
+                <div class="comments col-12 pl-5 pr-5">
+                    <strong> <?= comment.author.username ?></strong>
+                    <span class="float-right"><?= comment.time ?></span>
+                    <p><?= comment.text ?></p>
+                    <form action="/recipe/<?= recipe.id?>/comments/<?= comment._id ?>?_method=PUT" method="POST"> 
+                        <button class="btn btn-outline-primary">Edit</button>
+                    </form>
+                    <form action="/recipe/<?= recipe.id ?>/comments/<?= comment._id ?>?_method=DELETE" method="POST"> 
+                        <button class="btn btn-outline-danger">Delete</button>
+                    </form>
+                </div>
+            <? }); ?>   
+        <? }else { ?>
+            <h5 class="pl-5">Sorry no comments</h5>
+        <? } ?>
 
     </div>
 </div>
 
 <? include ../partials/footer ?>
+
+
+
+
 
 

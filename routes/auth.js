@@ -32,7 +32,7 @@ router.get('/login', (req, res)=> {
 
 //TODO: Error checking proper
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/',
+    successRedirect: '/users',
     failureRedirect: '/login'
 }) ,(req, res)=> {});
 

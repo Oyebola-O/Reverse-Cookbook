@@ -4,16 +4,19 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const fetch = require('node-fetch');
+const methodOverride = require('method-override');
 const localStrategy = require('passport-local');
 const expressSession = require('express-session');
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const user = require('./models/users');
-
+const comments = require('./models/comments');
 
 
 const auth = require('./routes/auth');
 const recipeRoutes = require('./routes/recipe');
+const commentsRoutes = require('./routes/comments');
+const userRoutes = require('./routes/user');
 
 
 mongoose.connect('mongodb://localhost:27017/ReverseCook', {useNewUrlParser: true});
@@ -27,6 +30,7 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
+app.use(methodOverride("_method"));
 app.use(expressSession({
     secret: "hahahahhaww",
     resave: false,
@@ -46,6 +50,8 @@ app.use((req, res, next)=> {
 app.get('/', (req, res)=> { res.render('index') });
 app.use(auth);
 app.use('/recipe', recipeRoutes);
+app.use('/recipe/:rid/comments', commentsRoutes);
+app.use('/users', userRoutes);
 app.get('*', (req, res)=> { res.send('Theres a mistake in the url')} );
 
 

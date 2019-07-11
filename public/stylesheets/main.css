@@ -306,3 +306,14 @@ p {
 .step {
     margin-bottom: 20px;
 }
+
+
+/* ================================ */
+/* Comments */
+/* ================================ */
+
+.comment-text {
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #E89C23;
+}
