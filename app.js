@@ -7,7 +7,7 @@ const fetch = require('node-fetch');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const localStrategy = require('passport-local');
-const expressSession = require('express-session');
+const expressSession = require('cookie-session');
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const user = require('./models/users');
