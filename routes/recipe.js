@@ -4,16 +4,21 @@ const router = express.Router({mergeParams: true});
 const recipeModel = require('../models/recipe');
 const recipeMiddleware = require('../middleware/recipe');
 const response = require('../test/response');
+let tip = require('../db/tips');
 // const response2 = require('../test/response2');
 
 
 
+//=====================================
+// RECIPE ROUTES
+//=====================================
 
 
+/*** Route to search recipes ***/
 router.post('/search/get', (req, res)=> {
     // res.render('recipe/results' ,{response});
     const ingredients = req.body.ingredients.ing;
-    const number = 12, ranking = 1, ignorePantry = "true";
+    const number = 24, ranking = 1, ignorePantry = "true";
     let ingstr = "";
     ingredients.forEach(ing => {
         ingstr === "" ? ingstr+= `${ing}` :  ingstr+= `%2C${ing}`
@@ -29,12 +34,19 @@ router.post('/search/get', (req, res)=> {
 
     fetch(url, object).then(response => response.json())
     .then((response)=> {
-        res.render('recipe/results' ,{response});
+        showingfor = '';
+        for(var i = 0; i < ingredients.length; i++){
+            if(i == ingredients.length - 1){
+                showingfor+= `and ${ingredients[i]}`; break;
+            }   showingfor += `${ingredients[i]}, `
+        }
+        res.render('recipe/results' ,{response, showingfor, tip});
     })
     
     .catch((error)=> {
         if(error){
             //TODO: Handle error properly
+            req.flash('error', `Sorry there was an error while making your request`)
             console.log(error);
             res.send('There was an error recipe.js router.post search/get')
         }

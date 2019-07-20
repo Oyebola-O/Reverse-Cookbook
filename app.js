@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const passport = require('passport');
 const fetch = require('node-fetch');
+const flash = require('connect-flash');
 const methodOverride = require('method-override');
 const localStrategy = require('passport-local');
 const expressSession = require('express-session');
@@ -31,6 +32,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(flash());
 app.use(expressSession({
     secret: "hahahahhaww",
     resave: false,
@@ -43,6 +45,8 @@ passport.serializeUser(user.serializeUser());
 passport.deserializeUser(user.deserializeUser());
 app.use((req, res, next)=> {
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash('error');
+    res.locals.success = req.flash('success');
     next();
 });
 

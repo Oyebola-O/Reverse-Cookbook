@@ -45,9 +45,12 @@ const checkOnline = (req, res, next)=> {
 
 
         let steps = [];
-        for(var step of recipe.analyzedInstructions[0].steps){
-            steps.push(step.step)
+        if(recipe.analyzedInstructions[0]){
+            for(var step of recipe.analyzedInstructions[0].steps){
+                steps.push(step.step)
+            }
         }
+
 
         let newrecipe = {id, title, image, numIngredients, likes, readyInMinutes,
             creditsText, sourceUrl, vegetarian, vegan, glutenFree, dairyFree, extendedIngredients, steps};

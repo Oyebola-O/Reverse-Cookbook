@@ -2,19 +2,16 @@
 <? include partials/nav ?>
 <div class="container pt-4">
     <div class="row justify-content-center p-0">
-        <div class="col-8 p-0 justify-content-center">
+        <div class="col-11 col-md-8 p-0 justify-content-center">
             <form autocomplete="off" action="/recipe/search/get" method="post" id="my_form" class="col-12 p-0 pl-3 cover">
                 <div class="row col-12 p-0">
                     <div class="autocomplete col-8 p-0 d-flex justify-content-left">
                         <input onkeypress="myFunction(event)" id="myInput" type="text" placeholder="add up to 5 ingredients">
                     </div>
     
-                    <div class="col-4 p-0 justify-content-right">
-                        <a title="search" class="float-right" href="javascript:{}" onclick="checkSubmit()">
-                            <img class="search-button" src="https://img.icons8.com/bubbles/42/000000/google-web-search.png">
-                        </a>
+                    <div class="col-4 p-0 d-flex justify-content-end align-items-center">
                         <img title="add item" id="search-button" class="search-button float-right" src="https://img.icons8.com/bubbles/42/000000/add.png">
-                        
+                    
                         <div class="dropdown">
                             <a class="dropdown-toggle" href="#" role="button" id="itemdrop" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <img title="ingredients basket" class="float-right search-button" src="https://img.icons8.com/bubbles/42/000000/scarlet-shopping-basket.png">
@@ -24,6 +21,10 @@
                                 <h6 class="pl-4 pt-2">List of ingredients</h6>
                             </div>
                         </div>
+
+                        <a title="search" class="float-right" href="javascript:{}" onclick="checkSubmit()">
+                            <img class="search-button" src="https://img.icons8.com/bubbles/42/000000/google-web-search.png">
+                        </a>
                     </div>
                 </div>
             </form>
@@ -36,7 +37,7 @@
 <div class="container tron p-0 mt-5">
 
     <!-- First Jumbo -->
-    <div class="row col-12">
+    <div class="row col-12 p-0 m-0">
         <div class="col-12 d-flex align-items-center b-shadow m-0" id="header">
             <h1 class="jumbo">
                 What ingredients <br> do you have?
@@ -46,8 +47,8 @@
 
 
     <!-- Beef and Eggs -->
-    <div class="row col-12 mt-5">
-        <div class="col-6 pl-0">
+    <div class="row col-12 mt-5 p-0 m-0">
+        <div class="col-12 pl-0 pr-0 pr-sm-3 col-sm-6">
             <div class="col-12 sub b-shadow" style="background: url(../assets/beef2.jpeg) center center / cover no-repeat">
                 <h1 class="jumbo">
                     Beef
@@ -55,7 +56,7 @@
             </div> 
         </div>
 
-        <div class="col-6 pr-0">
+        <div class="col-12 pl-0 pr-0 col-sm-6 mt-5 mt-sm-0">
             <div class="col-12 sub b-shadow" style="background: url(../assets/eggs.jpeg) center center / cover no-repeat">
                 <h1 class="jumbo float-right">
                     Eggs
@@ -66,8 +67,8 @@
 
 
     <!-- Vegetarian and Flour -->
-    <div class="row col-12 mt-5">
-        <div class="col-5 pl-0">
+    <div class="row col-12 mt-5 p-0 m-0">
+        <div class="col-12 pl-0 pr-0 pr-sm-3 col-sm-5">
             <div class="col-12 sub b-shadow" style="background: url(../assets/pasta1.jpeg) center center / cover no-repeat">
                 <h1 class="jumbo">
                     Pasta
@@ -75,7 +76,7 @@
             </div> 
         </div>
 
-        <div class="col-7 pr-0">
+        <div class="col-12 pl-0 pr-0 col-sm-7 mt-5 mt-sm-0">
             <div class="col-12 sub b-shadow" style="background: url(../assets/salad1.jpeg) center center / cover no-repeat">
                 <h1 class="jumbo float-right">
                     Lettuce
@@ -86,14 +87,14 @@
 
 
     <!-- Other -->
-    <div class="row col-12 mt-5">
-        <div class="col-8 sub b-shadow d-flex align-items-end justify-content-end" style="background: url(../assets/board.jpeg) center center / cover no-repeat">
+    <div class="row col-12 mt-5 p-0 m-0">
+        <div class="col-12 pl-0 pr-0 col-sm-8 sub b-shadow d-flex align-items-end justify-content-end" style="background: url(../assets/board.jpeg) center center / cover no-repeat">
             <h1 class="jumbo">
                 Other? Just search
             </h1>
         </div>
 
-        <div class="col-4 d-flex align-items-center justify-content-center pr-0">
+        <div class="col-12 pl-0 pr-0 pl-sm-3 col-sm-4 mt-2 mt-sm-0 d-flex align-items-center justify-content-center pr-0">
             <h1 class="jumbo-help">
                 Or you could just check our specials below!
             </h1>
@@ -102,47 +103,50 @@
 
 
     <!-- Specials -->
-    <div class="row col-12 mt-5 pb-5">
-        <div class="col-3 p-0">
-            <div class="card">
-                <img src="https://static1.squarespace.com/static/5a35be7e7131a5daca2e591c/5a3827559140b764372170c8/5a8f18d5419202d9fac41ec1/1519327449045/Screen+Shot+2018-02-22+at+1.21.06+PM.png?format=300w" alt="" class="card-img-top">
-                <div class="card-body">
-                <h6 class="card-title">Pata Alfredo  <a href="#" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a></h6>
-                </div>
-            </div>
+    <div class="row col-12 mt-0 mt-md-5 p-0 m-0 pb-5 d-flex justify-content-between">
+        <div class="col-6 pl-0 pr-2 col-md-3 mt-5 mt-sm-0">
+        <a href="/recipe/search/get/591231">
+            <div class="col-12 sub b-shadow d-flex align-items-end justify-content-end" style="background: url(../assets/shrimp2.jpeg) center center / cover no-repeat">
+                <h1 class="jumbo3 p-2">
+                    Chilli Shrimp
+                </h1>
+            </div> 
+        </a>
         </div>
 
-        <div class="col-3 p-0">
-            <div class="card">
-                <img src="https://static1.squarespace.com/static/5a35be7e7131a5daca2e591c/5a3827559140b764372170c8/5a8f18d2652deac02d67361d/1519327445934/Screen+Shot+2018-02-22+at+1.20.37+PM.png?format=500w" alt="" class="card-img-top">
-                <div class="card-body">
-                <h6 class="card-title">Linguini  <a href="#" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a></h6>
-                </div>
-            </div>
+        <div class="col-6 pl-0 pr-1 col-md-3 mt-5 mt-sm-0">
+        <a href="/recipe/search/get/809332">
+            <div class="col-12 sub b-shadow d-flex align-items-start justify-content-end" style="background: url(../assets/lemonade2.jpeg) center center / cover no-repeat">
+                <h1 class="mt-2 pb-2 jumbo3 w-50 text-center">
+                    Raspberry Lemonade
+                </h1>
+            </div> 
+        </a>
         </div>
 
-        <div class="col-3 p-0">
-            <div class="card">
-                <img src="https://static1.squarespace.com/static/5a35be7e7131a5daca2e591c/5a3827559140b764372170c8/5a8f18d471c10becaf8f2668/1519327448918/Screen+Shot+2018-02-22+at+1.20.50+PM.png?format=500w" alt="" class="card-img-top">
-                <div class="card-body">
-                <h6 class="card-title">Fish and egg  <a href="#" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a></h6>
-                </div>
-            </div>
+        <div class="col-6 pl-1 pr-0 col-md-3 mt-5 mt-sm-0">
+        <a href="/recipe/search/get/993356">
+            <div class="col-12 sub b-shadow d-flex align-items-center justify-content-start" style="background: url(../assets/aspas.jpeg) center center / cover no-repeat">
+                <h1 class="jumbo3 w-50 pl-2">
+                    Asparagus with cheese
+                </h1>
+            </div> 
+        </a>
+
         </div>
 
-        <div class="col-3 p-0">           
-            <div class="card">
-                <img src="https://static1.squarespace.com/static/5a35be7e7131a5daca2e591c/5a3827559140b764372170c8/5a8f18d2652deac02d67361d/1519327445934/Screen+Shot+2018-02-22+at+1.20.37+PM.png?format=500w" alt="" class="card-img-top">
-                <div class="card-body">
-                <h6 class="card-title">Linguini  <a href="#" class="btn btn-outline-danger btn-sm"><i class="far fa-heart"></i></a></h6>
-                </div>
-            </div>
-        </div>
+        <div class="col-6 pl-2 pr-0 col-md-3 mt-5 mt-sm-0">
+        <a href="/recipe/search/get/1011446">
+            <div class="col-12 sub b-shadow d-flex align-items-start justify-content-start" style="background: url(../assets/csteak.jpeg) center center / cover no-repeat">
+                <h1 class="jumbo3 mt-3 p-2">
+                    Cajun Flank Steak
+                </h1>
+            </div> 
+        </a>
+        </div> 
+
     </div>
-
-
-
-
+</div>
 </div>
 <? include partials/footer ?>
 <script> autocomplete(document.getElementById("myInput"), countries); </script>

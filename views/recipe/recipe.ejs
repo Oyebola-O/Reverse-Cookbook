@@ -44,17 +44,21 @@
     </div>
 
     <div class="row rows pb-5">
-        <h1 class="ml-5 mb-4 mb-md-5 mt-5 recipe-h1">Recipe Instructions</h1>
+        <? if(recipe.steps[0]){ ?>
+            <h1 class="ml-5 mb-4 mb-md-5 mt-5 recipe-h1">Recipe Instructions</h1>
 
-        <ul class="col-9 col-md-11 ml-5 d-flex align-items-center">
-        <div>
-            <? recipe.steps.forEach((step)=> { ?>
-                <li class="mb-5">
-                    <?= step ?>
-                </li>
-            <? }) ?>
-        </div>
-        </ul>
+            <ul class="col-9 col-md-11 ml-5 d-flex align-items-center">
+            <div>
+                <? recipe.steps.forEach((step)=> { ?>
+                    <li class="mb-5">
+                        <?= step ?>
+                    </li>
+                <? }) ?>
+            </div>
+            </ul>
+        <? } else { ?>
+            <h1 class="mb-4 mb-md-5 mt-5 text-center recipe-h1" style="margin: 0px auto">Sorry we don't have the steps for this recipe :( <br> Click on more info to get them</h1>
+        <? } ?>
     </div>
 
     <div class="row rows mt-2 pt-5 pb-5">

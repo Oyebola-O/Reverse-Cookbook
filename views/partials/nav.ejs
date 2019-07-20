@@ -6,7 +6,7 @@
             <div id="hamburger" class="search"><img src="https://img.icons8.com/bubbles/30/000000/hamburger.png"></div>
         </button>
 
-        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+        <div class="collapse navbar-collapse justify-content-end pt-2" id="navbarNavDropdown">
             <ul class="nav">
                 <? if(currentUser){ ?>
                     <div class="dropdown">
@@ -36,4 +36,22 @@
             </ul>
         </div>
     </ul>
+</div>
+
+<div class="container pt-4">
+
+    <? if(success && success.length > 0){ ?>
+        <div class="alert alert-success" role="alert">
+            <?= success ?>
+        </div>
+    <? } ?>
+
+
+    <? if(error && error.length > 0){ ?>
+        <div class="alert alert-danger" role="alert">
+            <?= error ?>
+        </div>
+    <? } ?>
+
+
 </div>

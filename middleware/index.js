@@ -6,7 +6,8 @@ const isLoggedIn = (req, res, next) => {
     if(req.isAuthenticated()) {
         return next();
     }
-    res.redirect('/login')
+    req.flash('error', `You need to be logged in to do that :(`)
+    res.redirect('back')
 }
 
 const checkCommentOwner = (req, res, next) => {
@@ -31,24 +32,6 @@ const checkCommentOwner = (req, res, next) => {
     }
 }
 
-// const checkCampOwner = (req, res, next) => {
-//     if(req.isAuthenticated()){
-//         camp.findById(req.params.id, (err, camp)=> {
-//             if(err){
-//                 console.log(err)
-//                 res.redirect('back');
-//             } else {
-//                 if(camp.author.id.equals(req.user.id)){
-//                     return next();
-//                 } else {
-//                     res.redirect('back');
-//                 }
-//             }
-//         });
-//     } else {
-//         res.redirect('back');
-//     }
-// }
 
 module.exports = {
     isLoggedIn, checkCommentOwner
