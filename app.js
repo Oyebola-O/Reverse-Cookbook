@@ -18,13 +18,10 @@ const auth = require('./routes/auth');
 const recipeRoutes = require('./routes/recipe');
 const commentsRoutes = require('./routes/comments');
 const userRoutes = require('./routes/user');
-const password = 'hobo';
 const herokuuser = 'heroku'
 const herokupass = 'hero'
 
-//mongodb+srv://Oyebola:<password>@hobo-r0nfl.gcp.mongodb.net/test?retryWrites=true&w=majority
-//mongoose.connect('mongodb://localhost:27017/ReverseCook', {useNewUrlParser: true});
-//mongoose.connect(`mongodb+srv://Oyebola:${password}@hobo-r0nfl.gcp.mongodb.net/test?retryWrites=true&w=majority`, {useNewUrlParser: true});
+
 mongoose.connect(`mongodb+srv://${herokuuser}:${herokupass}@hobo-r0nfl.gcp.mongodb.net/test?retryWrites=true&w=majority`, {useNewUrlParser: true});
 ejs.delimiter = '?';
 
