@@ -3,10 +3,23 @@ const fetch = require('node-fetch');
 const router = express.Router({mergeParams: true});
 const recipeModel = require('../models/recipe');
 const recipeMiddleware = require('../middleware/recipe');
-const response = require('../test/response');
-let tip = require('../db/tips');
-// const response2 = require('../test/response2');
+const tips = require('../db/tips');
+const num = 92;//tips.length
 
+
+
+router.get('/search/:food', (req, res)=> {
+    let response;
+    let tip = tips[~~(Math.random() * num)]
+    let food = req.params.food;
+    if(food == 'Beef'){           response = require('../db/beef') } 
+    else if(food == 'Eggs') {      response = require('../db/egg') } 
+    else if(food == 'Lettuce') {  response = require('../db/lettuce') } 
+    else {                      response = require('../db/pasta') }
+    
+    showingfor = food;
+    res.render('recipe/results' ,{response, showingfor, tip});
+});
 
 
 //=====================================
@@ -16,7 +29,7 @@ let tip = require('../db/tips');
 
 /*** Route to search recipes ***/
 router.post('/search/get', (req, res)=> {
-    // res.render('recipe/results' ,{response});
+    let tip = tips[~~(Math.random() * num)]
     const ingredients = req.body.ingredients.ing;
     const number = 24, ranking = 1, ignorePantry = "true";
     let ingstr = "";
@@ -25,6 +38,7 @@ router.post('/search/get', (req, res)=> {
     });
     
     const url = `https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=${number}&ranking=${ranking}&ignorePantry=${ignorePantry}&ingredients=${ingstr}`;
+    
     const object = {
         headers: {
             'X-RapidAPI-Host': 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com',
@@ -34,6 +48,7 @@ router.post('/search/get', (req, res)=> {
 
     fetch(url, object).then(response => response.json())
     .then((response)=> {
+        console.log(response)
         showingfor = '';
         for(var i = 0; i < ingredients.length; i++){
             if(i == ingredients.length - 1){

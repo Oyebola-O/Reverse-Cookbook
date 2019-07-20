@@ -93,6 +93,6 @@ let tips = [
     "keep it simple!"
 ];
 
-const num = tips.length;
+
     
-module.exports = tips[~~(Math.random() * num)];
+module.exports = tips;

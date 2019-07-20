@@ -19,8 +19,8 @@
                     <div class="card-box recipe-card">
                         <div class="recipe-card-image" style="background-image:url(<?= recipe.image ?>)"></div>
                         <div class="recipe-card-info pb-2">
-                            <? if(recipe.title.length > 35){ ?>
-                                <h3 class="recipe-card-title"> <?= recipe.title.substring(0, 35); ?>... </h3>
+                            <? if(recipe.title.length > 30){ ?>
+                                <h3 class="recipe-card-title"> <?= recipe.title.substring(0, 30); ?>... </h3>
                             <? } else { ?>
                                 <h3 class="recipe-card-title"> <?= recipe.title ?> </h3>
                             <? } ?>
