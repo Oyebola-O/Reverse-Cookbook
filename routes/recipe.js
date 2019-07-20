@@ -57,7 +57,6 @@ router.post('/search/get', (req, res)=> {
 
 router.get('/search/get/:rid', recipeMiddleware.checkMyDB, recipeMiddleware.checkOnline, (req, res)=> {
     //Todo: Handle error
-    console.log('got to end');
     res.send('got to end')
     // let recipe = response2;
     // res.render('recipe/recipe' ,{recipe})

@@ -71,7 +71,6 @@
             <img class="search-button ml-2" onclick="document.getElementById('commentSubmit').submit();" src="https://img.icons8.com/bubbles/46/000000/add.png">
         </form>
 
-        <? console.log(recipe.comments) ?>
 
         <? if(recipe.comments[0]){ ?>
             <? recipe.comments.forEach((comment)=> { ?>
@@ -79,12 +78,16 @@
                     <strong> <?= comment.author.username ?></strong>
                     <span class="float-right"><?= comment.time ?></span>
                     <p><?= comment.text ?></p>
-                    <form action="/recipe/<?= recipe.id?>/comments/<?= comment._id ?>?_method=PUT" method="POST"> 
+                    <!-- <form action="/recipe/<?= recipe.id?>/comments/<?= comment._id ?>?_method=PUT" method="POST"> 
                         <button class="btn btn-outline-primary">Edit</button>
-                    </form>
+                    </form> -->
+
+                    <? if(currentUser && comment.author.id.equals(currentUser._id)){ ?>
                     <form action="/recipe/<?= recipe.id ?>/comments/<?= comment._id ?>?_method=DELETE" method="POST"> 
                         <button class="btn btn-outline-danger">Delete</button>
                     </form>
+                    <? } ?>
+                    
                 </div>
             <? }); ?>   
         <? }else { ?>

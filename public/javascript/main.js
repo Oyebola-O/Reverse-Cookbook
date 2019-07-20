@@ -4,6 +4,8 @@ $("#mainNav").hover(function(){
     $(".navbar-brand").css("color", "#E89C23");
 });
 
+$('#message').delay(8000).fadeOut('fast');
+
 
 function showSubmit(){
     subform = document.getElementById('commentSubmit');

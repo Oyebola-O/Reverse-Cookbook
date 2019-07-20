@@ -21,17 +21,16 @@ router.get('/recipelike/:mydb_rid', middleware.isLoggedIn ,(req, res)=> {
             console.log(err)
         } else {
             // Handle, tell user item has been saved to his list
-            //console.log(user)
             if(user.liked.includes(mydb_rid)){
                 // TODO: Handle error, Tell user he already has it
-                console.log("User has it")
+                req.flash('success', 'You alreay have this recipe in your list')
             } else {
                 // TODO: Handle error, Tell user it's been added
-                console.log("doesn't have it")
+                req.flash('success', 'Recipe has been added to your list')
                 user.liked.push(mydb_rid);
                 user.save();
             }
-            res.send(user)
+            res.redirect('back')
         }
     });
 });

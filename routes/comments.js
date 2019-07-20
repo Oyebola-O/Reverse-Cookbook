@@ -9,13 +9,11 @@ const middleware = require('../middleware');
 // Create a comment
 router.post('/', middleware.isLoggedIn, (req, res)=> {
     let rid = req.params.rid;
-    // console.log(rid)
     recipeModel.findOne({id: rid}, (err, recipe)=> {
         if(err){
             // TODO: Handle error well
             console.log(err)
         } else {
-            if(!recipe){ console.log('Ther is an error ooo big one')}
             
             comments.create(req.body.comment, (err, comment)=> {
                 if(err){
@@ -24,7 +22,6 @@ router.post('/', middleware.isLoggedIn, (req, res)=> {
                     comment.author.id = req.user._id;
                     comment.author.username = req.user.username;
                     comment.time = "10 days ago"
-                    console.log(`This is it ${comment}`);
                     comment.save()
                     recipe.comments.push(comment);
                     recipe.save()

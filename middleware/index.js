@@ -14,8 +14,6 @@ const checkCommentOwner = (req, res, next) => {
     if(req.isAuthenticated()){
         comments.findById(req.params.cid, (err, comment)=> {
             if(err){
-                //TODO Handle error
-                console.log(err)
                 res.redirect('back');
             } else {
                 if(comment.author.id.equals(req.user.id)){

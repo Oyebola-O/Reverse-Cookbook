@@ -11,11 +11,9 @@ const checkMyDB = (req, res, next)=> {
             res.send(error)
         } else {
             if(recipe){
-                // console.log(` recipe ${recipe}`);
                 res.redirect(`/recipe/${rid}`);
             } else {
                 return next();
-                //res.render('recipe/recipe' ,{recipe});
             }
         }
     });
@@ -61,7 +59,6 @@ const checkOnline = (req, res, next)=> {
             if(err) {
                 console.log(err)
             } else {
-                console.log(recipe)
                 res.render('recipe/recipe' ,{recipe});
             }
         });
