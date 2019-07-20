@@ -12,7 +12,7 @@ router.get('/', (req, res)=> {
 
 
 // Save recipe as user's like
-router.get('/recipelike/:mydb_rid', (req, res)=> {
+router.get('/recipelike/:mydb_rid', middleware.isLoggedIn ,(req, res)=> {
     // let uid = req.user._id;
     let mydb_rid = req.params.mydb_rid;
     users.findById(req.user._id, (err, user)=> {
@@ -22,8 +22,15 @@ router.get('/recipelike/:mydb_rid', (req, res)=> {
         } else {
             // Handle, tell user item has been saved to his list
             //console.log(user)
-            user.liked.push(mydb_rid);
-            user.save();
+            if(user.liked.includes(mydb_rid)){
+                // TODO: Handle error, Tell user he already has it
+                console.log("User has it")
+            } else {
+                // TODO: Handle error, Tell user it's been added
+                console.log("doesn't have it")
+                user.liked.push(mydb_rid);
+                user.save();
+            }
             res.send(user)
         }
     });
@@ -31,7 +38,7 @@ router.get('/recipelike/:mydb_rid', (req, res)=> {
 
 
 // 
-router.get('/:uid', (req, res)=> {
+router.get('/getliked/:uid', (req, res)=> {
     let currentUser = req.user;
     let username = currentUser.username;
 

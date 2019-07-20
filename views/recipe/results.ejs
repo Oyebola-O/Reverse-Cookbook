@@ -1,28 +1,45 @@
 <? include ../partials/header ?>
+<div class="container-fluid p-0" id="rc">
+        
+    <div id="theader" class="m-0 mb-5 row d-flex" style="background-image:url(https://images.unsplash.com/photo-1464500650248-1a4b45debb9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1161&q=80)">
+        <? include ../partials/nav ?>
+        <div id="thead-text" class="align-self-end col-8 col-xl-4">
+            <h1 class="tips">Cooking tip: Crack eggs on a paper towel on the counter — no shells and easy cleanup!</h1>
+        </div>
+    </div>
 
-<div class="container-fluid pt-5 mt-4" id="rc">
-    <div class="row justify-content-center">
-
-        <? response.forEach((recipe)=> { ?>
-            <a href="/recipe/search/get/<?= recipe.id ?>">
-            <div class="col-3 mb-5">
-                <div class="card-box recipe-card">
-                    <div class="recipe-card-image" style="background-image:url(<?= recipe.image ?>)"></div>
-                    <div class="recipe-card-info">
-                        <span class="f-text"> RECIPE</span>
-                        <h3 class="recipe-card-title"> <?= recipe.title ?> </h3>
-                        <span class="card-by">by <a href="#" class="author">Rapid Api</a></span>
+    <div class="container">
+        <h1 class="secondh1 mb-4">
+            Showing recipes for Fish, Milk and Egg <img src="https://img.icons8.com/ios-filled/30/000000/salt-bae.png">
+        </h1>
+        <div class="row justify-content-center">
+            <? response.forEach((recipe)=> { ?>
+                <a href="/recipe/search/get/<?= recipe.id ?>">
+                <div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-5">
+                    <div class="card-box recipe-card">
+                        <div class="recipe-card-image" style="background-image:url(<?= recipe.image ?>)"></div>
+                        <div class="recipe-card-info pb-2">
+                            <? if(recipe.title.length > 35){ ?>
+                                <h3 class="recipe-card-title"> <?= recipe.title.substring(0, 35); ?>... </h3>
+                            <? } else { ?>
+                                <h3 class="recipe-card-title"> <?= recipe.title ?> </h3>
+                            <? } ?>
+                            <span class="f-text"> Recipe takes <?= (recipe.usedIngredientCount + recipe.missedIngredientCount) ?> ingredients</span>
+                            <span><img src="https://img.icons8.com/bubbles/40/000000/facebook-like.png"><a href="#" class="author">(<?= recipe.likes ?>)</a></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-            </a>
-        <? }) ?>
-
+                </a>
+            <? }) ?>
+        </div>
     </div>
 
-    <div class="view-more">
-        <button class="btn btn-outline-primary">View More</button>
+    <div id="bfooter" class="d-flex mt-5">
+        <div class="container align-self-center text-center">
+            <h1 class="secondh1">Enjoy your cooking!<img src="https://img.icons8.com/bubbles/60/000000/restaurant.png"></h1>
+        </div>
     </div>
+
 </div>
 
 

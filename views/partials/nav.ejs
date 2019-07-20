@@ -1,0 +1,39 @@
+<!-- Navbar -->
+<div class="pl-3 pr-0 py-1 px-md-5 py-md-2 col-12 navbar-expand-md" id="mainNav">
+    <ul class="nav justify-content-end">
+        <li class="nav-item mr-auto"><a class="navbar-brand" href="/">Reverse Cookbook</a></li>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <div id="hamburger" class="search"><img src="https://img.icons8.com/bubbles/30/000000/hamburger.png"></div>
+        </button>
+
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
+            <ul class="nav">
+                <? if(currentUser){ ?>
+                    <div class="dropdown">
+                        <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <li class="nav-item search "><img src="https://img.icons8.com/bubbles/30/000000/user-male-circle.png"></li>
+                        </a>
+                        
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="/users/getliked/currentUser._id">View Liked Recipes</a>
+                            <!-- <a class="dropdown-item" href="#">Edit Account</a> -->
+                        </div>
+                    </div>
+    
+                    <a href="/logout">
+                        <li class="nav-item mr-2"><button type="button" class="btn btn-outline-primary">Logout</button></li>
+                    </a>
+    
+                <? } else { ?>
+                    <a href="/login">
+                        <li class="nav-item mr-2"><button type="button" class="btn btn-outline-primary">Login</button></li>
+                    </a>
+                    <a href="/register">
+                        <li class="nav-item "><button type="button" class="btn btn-outline-primary">Register</button></li>
+                    </a>
+                <? } ?>
+                
+            </ul>
+        </div>
+    </ul>
+</div>

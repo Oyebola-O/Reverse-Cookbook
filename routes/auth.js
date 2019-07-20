@@ -9,7 +9,7 @@ router.get('/register', (req, res)=> {
 
 
 router.post('/register', (req, res)=> {
-    const {username, password} = req.body;
+    const {name, username, password} = req.body;
     const newuser = new user({username});
     user.register(newuser, password, (err, retuser)=> {
         if(err){
@@ -18,6 +18,8 @@ router.post('/register', (req, res)=> {
             return res.render('register');
         } else {
             //TODO: Return them to users home page
+            retuser.name = name;
+            retuser.save()
             passport.authenticate('local')(req, res, ()=> {
                 res.redirect('/');
             });
@@ -32,7 +34,7 @@ router.get('/login', (req, res)=> {
 
 //TODO: Error checking proper
 router.post('/login', passport.authenticate('local', {
-    successRedirect: '/users',
+    successRedirect: '/',
     failureRedirect: '/login'
 }) ,(req, res)=> {});
 

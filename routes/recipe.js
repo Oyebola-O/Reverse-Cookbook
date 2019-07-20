@@ -3,7 +3,7 @@ const fetch = require('node-fetch');
 const router = express.Router({mergeParams: true});
 const recipeModel = require('../models/recipe');
 const recipeMiddleware = require('../middleware/recipe');
-// const response = require('../test/response');
+const response = require('../test/response');
 // const response2 = require('../test/response2');
 
 
@@ -13,7 +13,7 @@ const recipeMiddleware = require('../middleware/recipe');
 router.post('/search/get', (req, res)=> {
     // res.render('recipe/results' ,{response});
     const ingredients = req.body.ingredients.ing;
-    const number = 4, ranking = 1, ignorePantry = "true";
+    const number = 12, ranking = 1, ignorePantry = "true";
     let ingstr = "";
     ingredients.forEach(ing => {
         ingstr === "" ? ingstr+= `${ing}` :  ingstr+= `%2C${ing}`
